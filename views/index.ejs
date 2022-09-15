@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #F0F1F9;">
+    
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
+                <div class="flex space-x-3">
+                  <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Empleados</a>
+
+                  <a href="/sueldo" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sueldo</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <div class="flex items-start justify-center h-screen w-full">
+        <div class="block p-6 mt-8 rounded-lg shadow-lg bg-white w-3/5">
+					
+					<div class=" flex w-4/5 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 mx-auto justify-center">
+						<ul class="flex ">
+							<li class="mr-2">
+								<a href="/" class="inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" >Nuevo</a>
+						</li>
+								<li class="mr-2">
+										<a href="/buscar" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Buscar</a>
+								</li>
+						</ul>
+				</div>
+
+        <div class="flex mt-5">
+          <h4 class="font-medium leading-tight text-2xl  text-blue-600 mx-auto">Agregar empleado</h4>
+        </div>
+            <form action="/save" method="post">
+              
+              <div class="grid grid-cols-1 gap-4 mt-5">
+                <div class="form-group  flex                 mx-auto w-4/5 items-center" >
+                    <p class="mr-2">Número:</p>
+                    <input readonly id="id" name="id" type="number" class="form-control block
+                    w-full
+                    px-3
+                    h-8
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+										placeholder-gray-400
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "  
+                    placeholder='No. empleado automatico'>
+                    </div>
+										
+                    <div class="form-group  flex                 mx-auto w-4/5 items-center" >
+                    <p class="mr-2">Nombre:</p>
+                    <input id="nombre" name="nombre" type="text" class="form-control mt-3 block
+                    w-full
+                    px-3
+                    h-8
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-800
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-900 focus:bg-white focus:border-blue-600 focus:outline-none"  
+										
+                    placeholder="Nombre del empleado">
+                    </div>
+              <div class="form-group mt-3 flex   mx-auto w-4/5 gap-4" >
+                <select aria-placeholder="Rol" id="rol" name="rol" class="form-control block
+								w-full
+								px-3
+								h-8
+								py-1.5
+								text-base
+								font-normal
+								text-gray-700
+								bg-white bg-clip-padding
+								border border-solid border-gray-300
+								rounded
+								transition
+								ease-in-out
+								m-0
+								focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" >
+                    <option disabled selected>Rol</option>
+                    <option value="chofer">Chofer</option>
+                    <option value="cargador">Auxiliar</option>
+                    <option value="auxiliar">Cargador</option>
+                  </select>
+									<select id="tipo" name="tipo" class="form-control block
+								w-full
+								px-3
+								h-8
+								py-1.5
+								text-base
+								font-normal
+								text-gray-700
+								bg-white bg-clip-padding
+								border border-solid border-gray-300
+								rounded
+								transition
+								ease-in-out
+								m-0
+								focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" >
+                    <option disabled selected>Tipo</option>
+                    <option value="interno">Interno</option>
+                    <option value="externo">Externo</option>
+                  </select>
+              </div>
+							<div class="form-group  flex                 mx-auto w-4/5 h-8 justify-end gap-2 mt-5" >
+              <button type="submit" class="
+                w-15
+                px-6
+                py-2.5
+                bg-blue-600
+                text-white
+                font-medium
+                text-xs
+                leading-tight
+                uppercase
+                rounded-lg
+                shadow-md
+                hover:bg-blue-700 hover:shadow-lg
+                focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+                active:bg-blue-800 active:shadow-lg
+                transition
+                duration-150
+                ease-in-out">Guardar</button>
+								<button type="button" class="
+                w-15
+                px-6
+                py-2.5
+                bg-red-600
+                text-white
+                font-medium
+                text-xs
+                leading-tight
+                uppercase
+                rounded-lg
+                shadow-md
+                hover:bg-red-700 hover:shadow-lg
+                focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
+                active:bg-blue-800 active:shadow-lg
+                transition
+                duration-150
+                ease-in-out"><a href="/">Cancelar</a></button>
+							</div>
+            </form>
+          </div>
+      </div>
+</body>
+</html>
